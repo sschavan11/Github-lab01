@@ -1,98 +1,94 @@
-LAB 1 – MLOps (IE-7374)
-Objective
+# LAB 1 – MLOps (IE-7374)
+
+## Objective
 
 This lab demonstrates a complete MLOps workflow including:
 
-Virtual environment setup
+- Virtual environment setup  
+- GitHub repository creation  
+- Structured project organization  
+- Unit testing using Pytest and Unittest  
+- Continuous Integration using GitHub Actions  
 
-GitHub repository creation
+The original calculator-based example was modified to implement a Machine Learning workflow using the Titanic dataset.
 
-Structured project organization
+---
 
-Unit testing using Pytest and Unittest
+## Dataset
 
-Continuous Integration using GitHub Actions
-
-The original calculator example was modified to implement a real Machine Learning workflow using the Titanic dataset.
-
-Modifications Made
-
-Instead of basic arithmetic functions, the project was redesigned to:
-
-Load and preprocess the Titanic dataset
-
-Train a Logistic Regression model
-
-Evaluate model performance using accuracy
-
-Add prediction functionality
-
-Implement automated testing
-
-Enable CI validation using GitHub Actions
-
-Dataset Used
-
-Titanic Dataset (Titanic-Dataset.csv)
+**Titanic Dataset (Titanic-Dataset.csv)**
 
 Selected Features:
+- Pclass  
+- Sex  
+- Age  
+- Fare  
 
-Pclass
+Target Variable:
+- Survived  
 
-Sex
+---
 
-Age
+## Implementation Logic
 
-Fare
+### 1. Data Loading & Preprocessing
+- Loaded dataset using pandas.
+- Selected relevant columns.
+- Converted categorical variable `Sex` to numerical format.
+- Handled missing values in `Age` using median imputation.
+- Dropped remaining null values if any.
 
-Target:
+### 2. Model Training
+- Used Logistic Regression from scikit-learn.
+- Split dataset into training and testing sets.
+- Trained model on training data.
+- Evaluated performance using accuracy score.
+- Ensured model accuracy is greater than 0.6.
 
-Survived
-
-Model Logic
-
-Load dataset using pandas.
-
-Convert categorical feature Sex to numeric.
-
-Handle missing values in Age using median imputation.
-
-Split data into training and test sets.
-
-Train Logistic Regression model.
-
-Evaluate accuracy on test set.
-
-Assert accuracy > 0.6 in unit tests.
-
-Testing
+### 3. Testing
 
 Two testing frameworks were implemented:
 
-Pytest
+#### Pytest
+- Validates data loading.
+- Validates model training.
+- Ensures accuracy threshold is met.
 
-Validates data loading
+#### Unittest
+- Class-based test validation.
+- Confirms correct model training and performance.
 
-Validates model training
+---
 
-Ensures minimum accuracy threshold
+## Continuous Integration (CI)
 
-Unittest
+GitHub Actions workflows were configured to:
 
-Class-based test validation
+- Automatically install dependencies.
+- Run Pytest.
+- Run Unittest.
+- Fail the workflow if any test fails.
 
-Confirms training and performance logic
+This ensures code reliability and reproducibility.
 
-Continuous Integration
+## Project Structure
+.github/workflows/
+data/
+src/
+test/
+README.md
+requirements.txt
 
-GitHub Actions workflows:
+---
 
-Automatically install dependencies
 
-Run Pytest
+---
 
-Run Unittest
+## How to Run Locally
 
-Fail if tests do not pass
-
-All tests must pass before merging into main branch.
+```bash
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python -m pytest
+python -m unittest test.test_unittest
