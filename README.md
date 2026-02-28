@@ -92,3 +92,10 @@ venv\Scripts\activate
 pip install -r requirements.txt
 python -m pytest
 python -m unittest test.test_unittest
+
+Test images
+<img width="1104" height="192" alt="Screenshot 2026-02-28 031548" src="https://github.com/user-attachments/assets/0a0972ef-f293-4bc7-9396-92f78a0fddf8" />
+
+<img width="1904" height="960" alt="Screenshot 2026-02-28 031400" src="https://github.com/user-attachments/assets/bef41952-51f2-49bc-8a5d-1391f8d1c568" />
+
+
